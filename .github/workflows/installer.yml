@@ -1,0 +1,13 @@
+name: Recieve Dispatch
+
+on:
+  repository_dispatch:
+    types: [generate-installer]
+
+jobs:
+  build_installer:
+    name: Build Installer
+    runs-on: ubuntu-latest
+    steps:
+      - name: simulate_generation
+        run: echo "Installer generated for release ${{ github.event.client_payload.release }}"
